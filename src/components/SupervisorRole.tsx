@@ -145,50 +145,11 @@ export default function SupervisorRole({
               COORDINADOR
             </span>
           </div>
-
-          {/* Minimal Nav pills */}
-          <div className="flex gap-1.5 mt-5 bg-zinc-950/40 p-1 rounded-xl max-w-md">
-            <button
-              onClick={() => setActiveTab("tareas")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
-                activeTab === "tareas" ? "bg-zinc-100 text-zinc-900 shadow-sm" : "text-zinc-400 hover:text-zinc-200"
-              }`}
-            >
-              Asignación
-            </button>
-            <button
-              onClick={() => setActiveTab("evidencia")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
-                activeTab === "evidencia" ? "bg-zinc-100 text-zinc-900 shadow-sm" : "text-zinc-400 hover:text-zinc-200"
-              }`}
-            >
-              Evidencias ({tasksWithEvidence.length})
-            </button>
-            <button
-              onClick={() => setActiveTab("recorridos")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
-                activeTab === "recorridos" ? "bg-zinc-100 text-zinc-900 shadow-sm" : "text-zinc-400 hover:text-zinc-200"
-              }`}
-            >
-              Recorridos
-            </button>
-            <button
-              onClick={() => setActiveTab("alertas")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all relative ${
-                activeTab === "alertas" ? "bg-zinc-100 text-zinc-900 shadow-sm" : "text-zinc-400 hover:text-zinc-200"
-              }`}
-            >
-              Alertas ({activeAlerts.length})
-              {activeAlerts.some((a) => a.isPanic) && (
-                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
-              )}
-            </button>
-          </div>
         </div>
       </div>
 
       {/* Main Panel Body - Centered max-width viewport */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-24">
         <div className="max-w-7xl mx-auto w-full p-4 md:p-6 lg:p-8 pb-20">
           {activeTab === "tareas" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
@@ -593,6 +554,56 @@ export default function SupervisorRole({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Fixed Bottom Mobile Navigation Bar */}
+      <div className="bg-zinc-900 border-t border-zinc-800 px-2 py-3.5 flex justify-around items-center shrink-0 shadow-[0_-8px_24px_rgba(0,0,0,0.3)] z-40 rounded-t-[1.5rem]">
+        <button
+          onClick={() => setActiveTab("tareas")}
+          className={`flex flex-col items-center gap-1 px-3 transition relative ${
+            activeTab === "tareas" ? "text-sky-400 scale-105" : "text-zinc-400 hover:text-zinc-200"
+          }`}
+        >
+          <Calendar className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Tareas</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("evidencia")}
+          className={`flex flex-col items-center gap-1 px-3 transition relative ${
+            activeTab === "evidencia" ? "text-sky-400 scale-105" : "text-zinc-400 hover:text-zinc-200"
+          }`}
+        >
+          <Camera className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Evidencias</span>
+          {tasksWithEvidence.length > 0 && (
+            <span className="absolute -top-1 -right-1.5 bg-sky-500 text-white font-mono font-bold text-[8px] px-1 rounded-full">
+              {tasksWithEvidence.length}
+            </span>
+          )}
+        </button>
+        <button
+          onClick={() => setActiveTab("recorridos")}
+          className={`flex flex-col items-center gap-1 px-3 transition relative ${
+            activeTab === "recorridos" ? "text-sky-400 scale-105" : "text-zinc-400 hover:text-zinc-200"
+          }`}
+        >
+          <MapPin className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Rutas</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("alertas")}
+          className={`flex flex-col items-center gap-1 px-3 transition relative ${
+            activeTab === "alertas" ? "text-sky-400 scale-105" : "text-zinc-400 hover:text-zinc-200"
+          }`}
+        >
+          <AlertTriangle className={`w-5 h-5 ${activeAlerts.some((a) => a.isPanic) ? "text-rose-500 animate-pulse" : ""}`} />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Alertas</span>
+          {activeAlerts.length > 0 && (
+            <span className="absolute -top-1 -right-1.5 bg-rose-600 text-white font-mono font-bold text-[8px] px-1 rounded-full animate-bounce">
+              {activeAlerts.length}
+            </span>
+          )}
+        </button>
       </div>
     </div>
   );

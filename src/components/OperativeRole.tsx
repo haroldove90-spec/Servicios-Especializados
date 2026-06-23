@@ -307,7 +307,7 @@ export default function OperativeRole({
       </div>
 
       {/* Operative Views Body - Centered max-width layout */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-24">
         <div className="max-w-7xl mx-auto w-full p-4 md:p-6 lg:p-8 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           {/* Left Column: Asistencia & Panic (5/12) */}
@@ -355,25 +355,6 @@ export default function OperativeRole({
                 )}
               </div>
             </div>
-
-            {/* PANIC BUTTON (Special for Security roles) */}
-            {currentWorker?.role === "Guardia" && (
-              <div className="bg-zinc-950 p-5 rounded-2xl border border-rose-950/40 shadow-lg text-center space-y-3.5">
-                <div>
-                  <span className="text-sm font-mono font-bold text-rose-500 uppercase tracking-wider block">
-                    🚨 BOTÓN DE PÁNICO SOS
-                  </span>
-                </div>
-
-                <button
-                  onClick={handlePanicTrigger}
-                  className="w-24 h-24 rounded-full bg-rose-600 hover:bg-rose-500 active:bg-rose-700 mx-auto flex flex-col items-center justify-center border-4 border-rose-950/60 shadow-[0_0_20px_rgba(239,68,68,0.4)] animate-pulse-slow font-black text-xs text-white uppercase tracking-wider gap-0.5"
-                >
-                  <AlertTriangle className="w-6 h-6 text-white" />
-                  S.O.S
-                </button>
-              </div>
-            )}
           </div>
 
           {/* Right Column: Daily Routine checklists and digital logs (7/12) */}
@@ -527,7 +508,7 @@ export default function OperativeRole({
               </div>
 
               {showIncidentForm && (
-                <form onSubmit={handleAddIncidentSubmit} className="bg-zinc-950 p-4 rounded-2xl border border-zinc-800 space-y-3 animate-fade-in">
+                <form id="incident-form-title" onSubmit={handleAddIncidentSubmit} className="bg-zinc-950 p-4 rounded-2xl border border-zinc-800 space-y-3 animate-fade-in">
                   <div className="flex justify-between items-center border-b border-zinc-855 pb-2">
                     <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">Ficha de Incidencia</span>
                     <span className="text-xs text-zinc-500 font-mono">GPS Automático</span>
@@ -622,6 +603,39 @@ export default function OperativeRole({
           </div>
 
         </div>
+      </div>
+
+      {/* Bottom Fixed Action Menu for Operatives */}
+      <div className="bg-zinc-950 border-t border-zinc-800 px-4 py-3.5 flex gap-3 items-center shrink-0 shadow-[0_-8px_24px_rgba(0,0,0,0.4)] z-40 rounded-t-[1.5rem]">
+        <button
+          onClick={() => {
+            if (!currentShift) {
+              triggerNotification("⚠️ Primero debes iniciar tu turno (Check-In) antes de reportar incidencias.");
+              return;
+            }
+            setShowIncidentForm(true);
+            setTimeout(() => {
+              const formElement = document.getElementById("incident-form-title");
+              if (formElement) {
+                formElement.scrollIntoView({ behavior: "smooth" });
+              }
+            }, 100);
+          }}
+          className="flex-1 bg-zinc-850 hover:bg-zinc-800 text-zinc-100 text-xs font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1.5 border border-zinc-750 active:scale-95"
+        >
+          <AlertOctagon className="w-4 h-4 text-amber-500" />
+          Reportar Novedad
+        </button>
+
+        {currentWorker?.role === "Guardia" && (
+          <button
+            onClick={handlePanicTrigger}
+            className="flex-1 bg-rose-600 hover:bg-rose-500 text-white text-xs font-extrabold py-3 px-4 rounded-xl transition flex items-center justify-center gap-1.5 active:scale-95 shadow-[0_0_15px_rgba(239,68,68,0.4)] animate-pulse"
+          >
+            <AlertTriangle className="w-4 h-4 text-white" />
+            🚨 BOTÓN S.O.S
+          </button>
+        )}
       </div>
     </div>
   );

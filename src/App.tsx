@@ -100,55 +100,64 @@ export default function App() {
 
   return (
     <div className="h-screen w-full bg-stone-50 text-stone-900 flex flex-col select-none overflow-hidden" id="app-root">
+      {/* Simulated Device Status Bar */}
+      <div className="bg-stone-950 px-4 py-1 flex items-center justify-between text-[10px] font-mono text-stone-400 select-none border-b border-stone-900/60 shrink-0 z-50">
+        <div className="flex items-center gap-1 font-semibold text-stone-300">
+          <span>{currentTime || "15:07"}</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <Signal className="w-3 h-3 text-stone-400" />
+          <Wifi className="w-3 h-3 text-stone-400" />
+          <div className="flex items-center gap-1">
+            <Battery className="w-3.5 h-3.5 text-emerald-400" />
+            <span>98%</span>
+          </div>
+        </div>
+      </div>
+
       {/* Dynamic Global Top Header Bar */}
-      <header className="bg-stone-900 text-white px-4 md:px-8 py-4 flex items-center justify-between border-b border-stone-800 shadow-lg shrink-0 z-50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 shrink-0">
-            <Shield className="w-6 h-6" />
+      <header className="bg-stone-900 text-white px-4 py-2.5 flex items-center justify-between border-b border-stone-850 shadow-md shrink-0 z-50">
+        <div className="flex items-center gap-2">
+          <div className="w-7 h-7 rounded-lg bg-amber-400/10 border border-amber-400/20 flex items-center justify-center text-amber-400 shrink-0">
+            <Shield className="w-4 h-4" />
           </div>
           <div>
-            <h1 className="text-base md:text-lg font-extrabold tracking-tight text-stone-100 uppercase font-sans flex items-center gap-1.5">
-              SERVICIOS ESPECIALIZADOS
+            <h1 className="text-xs font-black tracking-wider text-stone-100 uppercase font-sans">
+              GRUPO S.E.
             </h1>
-            <p className="text-xs text-stone-400 hidden sm:block">
-              Seguridad Privada &bull; Limpieza Industrial &bull; Control Inteligente
-            </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           {activeRole !== "home" ? (
             <button
               onClick={() => setActiveRole("home")}
-              className="flex items-center gap-1.5 text-xs font-semibold text-stone-300 hover:text-white bg-stone-800 hover:bg-stone-750 px-4 py-2 rounded-xl border border-stone-700 transition"
+              className="flex items-center gap-1 text-[11px] font-extrabold text-stone-300 hover:text-white bg-stone-850 hover:bg-stone-800 px-3 py-1.5 rounded-lg border border-stone-750 transition active:scale-95"
               id="btn-back-home"
             >
-              <ChevronLeft className="w-4 h-4" /> Volver al Inicio
+              <ChevronLeft className="w-3.5 h-3.5 text-amber-400" /> Módulos
             </button>
           ) : (
             <button
               onClick={handleInstallApp}
-              className="flex items-center gap-1.5 text-xs font-bold text-stone-900 bg-amber-400 hover:bg-amber-300 px-4 py-2 rounded-xl shadow-md transition transform active:scale-95"
+              className="flex items-center gap-1 text-[11px] font-bold text-stone-900 bg-amber-400 hover:bg-amber-300 px-3 py-1.5 rounded-lg transition transform active:scale-95"
               id="btn-install-pwa-header"
             >
-              <Smartphone className="w-4 h-4" /> Instalar App PWA
+              <Smartphone className="w-3.5 h-3.5" /> Instalar App
             </button>
           )}
           
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-stone-300 font-mono hidden md:inline">{currentTime || "14:33"}</span>
-            {activeRole !== "home" && (
-              <span className={`text-xs font-mono font-bold tracking-wider px-3 py-1 rounded-full uppercase ${
-                activeRole === "admin" 
-                  ? "bg-amber-400/10 text-amber-400 border border-amber-400/20" 
-                  : activeRole === "supervisor" 
-                    ? "bg-sky-400/10 text-sky-400 border border-sky-400/20" 
-                    : "bg-emerald-400/10 text-emerald-400 border border-emerald-400/20"
-              }`}>
-                {activeRole === "admin" ? "ADMIN" : activeRole === "supervisor" ? "COORD" : "MÓVIL"}
-              </span>
-            )}
-          </div>
+          {activeRole !== "home" && (
+            <span className={`text-[10px] font-mono font-bold tracking-wider px-2 py-0.5 rounded uppercase ${
+              activeRole === "admin" 
+                ? "bg-amber-400/15 text-amber-400 border border-amber-400/30" 
+                : activeRole === "supervisor" 
+                  ? "bg-sky-400/15 text-sky-400 border border-sky-400/30" 
+                  : "bg-emerald-400/15 text-emerald-400 border border-emerald-400/30"
+            }`}>
+              {activeRole === "admin" ? "ADMIN" : activeRole === "supervisor" ? "COORD" : "MÓVIL"}
+            </span>
+          )}
         </div>
       </header>
 

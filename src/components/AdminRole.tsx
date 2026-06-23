@@ -180,47 +180,11 @@ export default function AdminRole({
               DUEÑO / ADMIN
             </span>
           </div>
-
-          {/* Minimal Nav pills */}
-          <div className="flex gap-1.5 mt-5 bg-stone-950/40 p-1 rounded-xl max-w-md">
-            <button
-              onClick={() => setActiveTab("dashboard")}
-              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
-                activeTab === "dashboard" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
-              }`}
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => setActiveTab("clientes")}
-              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
-                activeTab === "clientes" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
-              }`}
-            >
-              Clientes
-            </button>
-            <button
-              onClick={() => setActiveTab("personal")}
-              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
-                activeTab === "personal" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
-              }`}
-            >
-              Personal
-            </button>
-            <button
-              onClick={() => setActiveTab("reportes")}
-              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
-                activeTab === "reportes" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
-              }`}
-            >
-              Reportes
-            </button>
-          </div>
         </div>
       </div>
 
       {/* Main Panel Body - Centered max-width viewport */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto pb-24">
         <div className="max-w-7xl mx-auto w-full p-4 md:p-6 lg:p-8 pb-20">
           {activeTab === "dashboard" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
@@ -774,6 +738,46 @@ export default function AdminRole({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Fixed Bottom Mobile Navigation Bar */}
+      <div className="bg-stone-900 border-t border-stone-800 px-2 py-3.5 flex justify-around items-center shrink-0 shadow-[0_-8px_24px_rgba(0,0,0,0.3)] z-40 rounded-t-[1.5rem]">
+        <button
+          onClick={() => setActiveTab("dashboard")}
+          className={`flex flex-col items-center gap-1 px-4 transition ${
+            activeTab === "dashboard" ? "text-amber-400 scale-105" : "text-stone-400 hover:text-stone-200"
+          }`}
+        >
+          <TrendingUp className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Inicio</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("clientes")}
+          className={`flex flex-col items-center gap-1 px-4 transition ${
+            activeTab === "clientes" ? "text-amber-400 scale-105" : "text-stone-400 hover:text-stone-200"
+          }`}
+        >
+          <MapPin className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Clientes</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("personal")}
+          className={`flex flex-col items-center gap-1 px-4 transition ${
+            activeTab === "personal" ? "text-amber-400 scale-105" : "text-stone-400 hover:text-stone-200"
+          }`}
+        >
+          <Users className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Personal</span>
+        </button>
+        <button
+          onClick={() => setActiveTab("reportes")}
+          className={`flex flex-col items-center gap-1 px-4 transition ${
+            activeTab === "reportes" ? "text-amber-400 scale-105" : "text-stone-400 hover:text-stone-200"
+          }`}
+        >
+          <FileText className="w-5 h-5" />
+          <span className="text-[10px] font-bold tracking-wider uppercase font-mono">Reportes</span>
+        </button>
       </div>
     </div>
   );
