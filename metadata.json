@@ -1,6 +1,6 @@
 {
-  "name": "Gestión de Seguridad y Limpieza",
-  "description": "Aplicación móvil para la gestión de servicios especializados de seguridad privada y limpieza industrial con roles para administrador, supervisor y personal operativo.",
+  "name": "Servicios Especializados",
+  "description": "Aplicación móvil y portal de control operativo para la gestión de servicios especializados de seguridad privada y limpieza industrial.",
   "requestFramePermissions": ["geolocation"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -246,12 +246,12 @@ export default function OperativeRole({
               {currentWorker?.name.charAt(0) || "OP"}
             </div>
             <div>
-              <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-mono">Personal Móvil</span>
-              <h2 className="text-xs font-semibold text-zinc-200">{currentWorker?.name}</h2>
+              <span className="text-xs text-zinc-500 uppercase tracking-widest font-mono">Personal Móvil</span>
+              <h2 className="text-sm font-bold text-zinc-200">{currentWorker?.name}</h2>
             </div>
           </div>
           <span
-            className={`text-[9px] font-bold px-2.5 py-0.5 rounded-full font-mono uppercase tracking-wider ${
+            className={`text-xs font-bold px-3 py-1 rounded-full font-mono uppercase tracking-wider ${
               currentWorker?.role === "Guardia" ? "bg-rose-500/10 text-rose-400 border border-rose-500/20" : "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
             }`}
           >
@@ -262,8 +262,8 @@ export default function OperativeRole({
         {/* Simulators Bar */}
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
           {/* Demo Switcher */}
-          <div className="flex gap-2 items-center bg-zinc-900/60 p-2 rounded-xl border border-zinc-800/80">
-            <label className="text-[10px] text-zinc-500 font-mono whitespace-nowrap">Simular Usuario:</label>
+          <div className="flex gap-2 items-center bg-zinc-900/60 p-2.5 rounded-xl border border-zinc-800/80">
+            <label className="text-xs text-zinc-400 font-mono whitespace-nowrap">Simular Usuario:</label>
             <select
               value={activeWorkerId}
               onChange={(e) => {
@@ -271,7 +271,7 @@ export default function OperativeRole({
                 setActiveTaskIdToComplete(null);
                 setShowIncidentForm(false);
               }}
-              className="flex-1 bg-zinc-950 text-xs text-zinc-300 p-1.5 rounded-lg focus:outline-none focus:ring-1 focus:ring-zinc-700 border-none"
+              className="flex-1 bg-zinc-950 text-xs text-zinc-300 p-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-zinc-700 border-none"
             >
               {personnel.map((p) => (
                 <option key={p.id} value={p.id}>
@@ -282,12 +282,12 @@ export default function OperativeRole({
           </div>
 
           {/* Geofence Simulator Toggle */}
-          <div className="flex justify-between items-center text-[10px] bg-zinc-900/40 p-2 rounded-xl border border-zinc-800/80">
-            <span className="text-zinc-500 font-mono">Simulador GPS:</span>
-            <div className="flex gap-1.5">
+          <div className="flex justify-between items-center text-xs bg-zinc-900/40 p-2.5 rounded-xl border border-zinc-800/80">
+            <span className="text-zinc-400 font-mono">Simulador GPS:</span>
+            <div className="flex gap-2">
               <button
                 onClick={() => setGpsSimulatedStatus("dentro")}
-                className={`px-2.5 py-1 rounded-md font-medium text-[9px] transition-all ${
+                className={`px-3 py-1 rounded-md font-semibold text-xs transition-all ${
                   gpsSimulatedStatus === "dentro" ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30" : "text-zinc-500"
                 }`}
               >
@@ -295,7 +295,7 @@ export default function OperativeRole({
               </button>
               <button
                 onClick={() => setGpsSimulatedStatus("fuera")}
-                className={`px-2.5 py-1 rounded-md font-medium text-[9px] transition-all ${
+                className={`px-3 py-1 rounded-md font-semibold text-xs transition-all ${
                   gpsSimulatedStatus === "fuera" ? "bg-rose-500/20 text-rose-400 border border-rose-500/30" : "text-zinc-500"
                 }`}
               >
@@ -316,23 +316,23 @@ export default function OperativeRole({
             <div className="bg-zinc-950 p-5 rounded-2xl border border-zinc-800 shadow-lg space-y-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xs font-bold text-zinc-300 uppercase tracking-wider flex items-center gap-1.5">
+                  <h3 className="text-sm font-bold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
                     <MapPin className="w-4 h-4 text-zinc-400" /> Registro de Asistencia
                   </h3>
-                  <p className="text-[11px] text-zinc-500 mt-1.5 font-mono">
-                    Punto: <span className="text-zinc-300 font-semibold">{currentClient ? currentClient.name : "N/A"}</span>
+                  <p className="text-xs text-zinc-400 mt-2 font-mono">
+                    Punto: <span className="text-white font-semibold">{currentClient ? currentClient.name : "N/A"}</span>
                   </p>
-                  <p className="text-[10px] text-zinc-500 font-mono">
-                    Límite Geocerca: <span className="text-zinc-400">{currentClient ? `${currentClient.radius} metros` : "N/A"}</span>
+                  <p className="text-xs text-zinc-500 font-mono">
+                    Geocerca: <span className="text-zinc-400">{currentClient ? `${currentClient.radius} metros` : "N/A"}</span>
                   </p>
                 </div>
                 {currentShift ? (
-                  <span className="bg-emerald-500/10 text-emerald-400 text-[9px] font-bold px-2 py-0.5 rounded font-mono uppercase tracking-wider">
+                  <span className="bg-emerald-500/10 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded font-mono uppercase tracking-wider">
                     EN TURNO
                   </span>
                 ) : (
-                  <span className="bg-zinc-850 text-zinc-400 text-[9px] font-bold px-2 py-0.5 rounded font-mono uppercase tracking-wider">
-                    FUERA DE TURNO
+                  <span className="bg-zinc-850 text-zinc-400 text-xs font-bold px-2 py-0.5 rounded font-mono uppercase tracking-wider">
+                    FUERA
                   </span>
                 )}
               </div>
@@ -360,12 +360,9 @@ export default function OperativeRole({
             {currentWorker?.role === "Guardia" && (
               <div className="bg-zinc-950 p-5 rounded-2xl border border-rose-950/40 shadow-lg text-center space-y-3.5">
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-rose-500 uppercase tracking-widest block">
-                    🚨 PROTOCOLO DE INCIDENTES CRÍTICOS
+                  <span className="text-sm font-mono font-bold text-rose-500 uppercase tracking-wider block">
+                    🚨 BOTÓN DE PÁNICO SOS
                   </span>
-                  <p className="text-[10px] text-zinc-500 mt-1 leading-relaxed">
-                    Presiona el botón ante cualquier situación de riesgo o peligro inminente para enviar tu geolocalización.
-                  </p>
                 </div>
 
                 <button
@@ -383,8 +380,8 @@ export default function OperativeRole({
           <div className="lg:col-span-7 space-y-5">
             {/* Daily Routine / Tasks Checklist */}
             <div className="space-y-3">
-              <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block px-1">
-                Lista de Tareas Diarias ({myTasks.length})
+              <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider block px-1 font-semibold">
+                Tareas Diarias del Turno ({myTasks.length})
               </span>
 
               {myTasks.length === 0 ? (
@@ -420,14 +417,14 @@ export default function OperativeRole({
                               ></div>
                             )}
                             <div className="flex-1">
-                              <h4 className={`text-xs font-bold leading-tight ${isCompleted ? "line-through text-zinc-500" : "text-zinc-200"}`}>
+                              <h4 className={`text-sm font-bold leading-tight ${isCompleted ? "line-through text-zinc-500" : "text-zinc-200"}`}>
                                 {task.title}
                               </h4>
                               <div className="flex gap-1.5 mt-2">
-                                <span className="text-[8px] font-mono bg-zinc-900 text-zinc-400 px-1.5 py-0.5 rounded uppercase">
+                                <span className="text-[10px] font-mono bg-zinc-900 text-zinc-400 px-2 py-0.5 rounded uppercase">
                                   {task.frequency}
                                 </span>
-                                <span className="text-[8px] font-mono bg-zinc-900 text-zinc-400 px-1.5 py-0.5 rounded">
+                                <span className="text-[10px] font-mono bg-zinc-900 text-zinc-400 px-2 py-0.5 rounded">
                                   {task.type}
                                 </span>
                               </div>
@@ -438,7 +435,7 @@ export default function OperativeRole({
                         {/* Completion evidence upload form */}
                         {activeTaskIdToComplete === task.id && (
                           <form onSubmit={handleCompleteTaskSubmit} className="mt-3 pt-3 border-t border-zinc-900 space-y-3 animate-fade-in">
-                            <span className="text-[9px] font-bold text-zinc-400 uppercase tracking-wider block">
+                            <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">
                               Reportar Evidencia Fotográfica
                             </span>
 
@@ -450,7 +447,7 @@ export default function OperativeRole({
                                     "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=400"
                                   )
                                 }
-                                className={`p-2 rounded-xl border border-zinc-800 text-left text-[10px] flex items-center gap-1.5 transition-colors ${
+                                className={`p-2 rounded-xl border border-zinc-800 text-left text-xs flex items-center gap-1.5 transition-colors ${
                                   taskPhotoUrl.includes("1581578731548") ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/20" : "text-zinc-400"
                                 }`}
                               >
@@ -463,7 +460,7 @@ export default function OperativeRole({
                                     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400"
                                   )
                                 }
-                                className={`p-2 rounded-xl border border-zinc-800 text-left text-[10px] flex items-center gap-1.5 transition-colors ${
+                                className={`p-2 rounded-xl border border-zinc-800 text-left text-xs flex items-center gap-1.5 transition-colors ${
                                   taskPhotoUrl.includes("1517245386807") ? "bg-cyan-500/10 text-cyan-400 border-cyan-500/20" : "text-zinc-400"
                                 }`}
                               >
@@ -477,14 +474,14 @@ export default function OperativeRole({
                                 value={taskNotes}
                                 onChange={(e) => setTaskNotes(e.target.value)}
                                 placeholder="Comentario rápido (opcional)"
-                                className="w-full text-xs p-2 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-zinc-700 text-zinc-100"
+                                className="w-full text-xs p-2.5 bg-zinc-900 border border-zinc-800 rounded-xl focus:outline-none focus:ring-1 focus:ring-zinc-700 text-zinc-100"
                               />
                             </div>
 
                             <div className="flex gap-2">
                               <button
                                 type="submit"
-                                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold py-2 rounded-xl transition"
+                                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 rounded-xl transition"
                               >
                                 Enviar
                               </button>
@@ -495,7 +492,7 @@ export default function OperativeRole({
                                   setTaskPhotoUrl("");
                                   setTaskNotes("");
                                 }}
-                                className="px-3 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-[11px] rounded-xl transition"
+                                className="px-3 py-2 bg-zinc-800 hover:bg-zinc-750 text-zinc-300 text-xs rounded-xl transition"
                               >
                                 Cancelar
                               </button>
@@ -512,8 +509,8 @@ export default function OperativeRole({
             {/* Digital Logs and Incidents Report */}
             <div className="space-y-3">
               <div className="flex justify-between items-center px-1">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider block font-bold">
-                  Bitácora e Incidencias en Turno
+                <span className="text-xs font-mono text-zinc-500 uppercase tracking-wider block font-bold">
+                  Bitácora de Incidencias
                 </span>
                 <button
                   onClick={() => {
@@ -523,7 +520,7 @@ export default function OperativeRole({
                     }
                     setShowIncidentForm((prev) => !prev);
                   }}
-                  className="text-[10px] text-amber-400 font-bold hover:underline"
+                  className="text-xs text-amber-400 font-bold hover:underline"
                 >
                   + Levantar Reporte
                 </button>
@@ -532,13 +529,13 @@ export default function OperativeRole({
               {showIncidentForm && (
                 <form onSubmit={handleAddIncidentSubmit} className="bg-zinc-950 p-4 rounded-2xl border border-zinc-800 space-y-3 animate-fade-in">
                   <div className="flex justify-between items-center border-b border-zinc-855 pb-2">
-                    <span className="text-[11px] font-bold text-zinc-300 uppercase tracking-wider">Ficha de Incidencia</span>
-                    <span className="text-[9px] text-zinc-500 font-mono">GPS Automático</span>
+                    <span className="text-xs font-bold text-zinc-300 uppercase tracking-wider">Ficha de Incidencia</span>
+                    <span className="text-xs text-zinc-500 font-mono">GPS Automático</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
                     <div>
-                      <label className="block text-[9px] text-zinc-500 font-mono mb-1">Clasificación</label>
+                      <label className="block text-xs text-zinc-500 font-mono mb-1">Clasificación</label>
                       <select
                         value={incidentType}
                         onChange={(e) => setIncidentType(e.target.value as any)}
@@ -549,7 +546,7 @@ export default function OperativeRole({
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[9px] text-zinc-500 font-mono mb-1">Foto de Evidencia</label>
+                      <label className="block text-xs text-zinc-500 font-mono mb-1">Foto de Evidencia</label>
                       <select
                         value={incidentPhoto}
                         onChange={(e) => setIncidentPhoto(e.target.value)}
@@ -567,13 +564,13 @@ export default function OperativeRole({
                   </div>
 
                   <div>
-                    <label className="block text-[9px] text-zinc-500 font-mono mb-1">Detalle / Descripción</label>
+                    <label className="block text-xs text-zinc-500 font-mono mb-1">Detalle / Descripción</label>
                     <textarea
                       required
                       rows={3}
                       value={incidentDescription}
                       onChange={(e) => setIncidentDescription(e.target.value)}
-                      placeholder="Describe la novedad o incidente con precisión..."
+                      placeholder="Describe la novedad..."
                       className="w-full text-xs p-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-zinc-200 focus:outline-none focus:ring-1 focus:ring-zinc-700"
                     />
                   </div>
@@ -602,18 +599,18 @@ export default function OperativeRole({
                   <div key={inc.id} className="bg-zinc-950 p-4 rounded-2xl border border-zinc-850 text-xs flex flex-col justify-between gap-3">
                     <div className="space-y-1.5">
                       <div className="flex items-center gap-1.5">
-                        <span className={`text-[8px] font-mono px-1.5 py-0.5 rounded font-bold uppercase ${
+                        <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase ${
                           inc.type === "Prioritaria" ? "bg-rose-500/10 text-rose-400" : "bg-zinc-800 text-zinc-400"
                         }`}>
                           {inc.type}
                         </span>
-                        <span className="text-[9px] text-zinc-500 font-mono">
+                        <span className="text-xs text-zinc-500 font-mono">
                           {new Date(inc.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                         </span>
                       </div>
                       <p className="text-zinc-300 font-medium leading-relaxed">{inc.description}</p>
                     </div>
-                    <span className={`text-[8px] font-bold self-start px-2 py-0.5 rounded uppercase ${
+                    <span className={`text-[10px] font-bold self-start px-2.5 py-0.5 rounded uppercase ${
                       inc.status === "Atendida" ? "bg-emerald-500/10 text-emerald-400" : "bg-amber-500/10 text-amber-400"
                     }`}>
                       {inc.status}

@@ -395,27 +395,27 @@ export default function SupervisorRole({
                           <div className="p-4 space-y-2.5">
                             <div className="flex items-center justify-between">
                               <span
-                                className={`text-[8px] font-mono px-1.5 py-0.5 rounded ${
+                                className={`text-xs font-mono px-2 py-0.5 rounded ${
                                   task.type === "Seguridad" ? "bg-rose-50 text-rose-700" : "bg-cyan-50 text-cyan-700"
                                 }`}
                               >
                                 {task.type}
                               </span>
-                              <span className="text-[9px] text-zinc-400 font-mono">
+                              <span className="text-xs text-zinc-400 font-mono">
                                 Completado: {task.completedAt ? new Date(task.completedAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : "N/A"}
                               </span>
                             </div>
                             <div>
                               <h4 className="text-xs font-bold text-zinc-800 leading-tight">{task.title}</h4>
-                              <p className="text-[10px] text-zinc-500 mt-1">
+                              <p className="text-xs text-zinc-500 mt-1">
                                 Punto: <span className="font-semibold text-zinc-700">{client ? client.name : "N/A"}</span>
                               </p>
-                              <p className="text-[10px] text-zinc-500">
+                              <p className="text-xs text-zinc-500">
                                 Colaborador: <span className="font-semibold text-zinc-700">{staff ? staff.name : "N/A"}</span>
                               </p>
                             </div>
 
-                            <div className="bg-zinc-50 p-2.5 rounded-xl border border-zinc-100 text-[11px] text-zinc-600 italic">
+                            <div className="bg-zinc-50 p-2.5 rounded-xl border border-zinc-100 text-xs text-zinc-600 italic">
                               "{task.textEvidence || "Sin descripción proporcionada."}"
                             </div>
                           </div>
@@ -430,7 +430,7 @@ export default function SupervisorRole({
                               );
                               triggerNotification("Evidencia fotográfica aprobada exitosamente.");
                             }}
-                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold py-2.5 rounded-xl transition flex items-center justify-center gap-1 shadow-sm"
+                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 rounded-xl transition flex items-center justify-center gap-1 shadow-sm"
                           >
                             <Check className="w-3.5 h-3.5" /> Aprobar Reporte
                           </button>
@@ -451,7 +451,7 @@ export default function SupervisorRole({
                   <h3 className="text-xs font-bold text-zinc-500 uppercase tracking-wider">
                     Geolocalización de Colaboradores en Campo
                   </h3>
-                  <span className="text-[11px] text-zinc-400 font-mono">Total: {personnel.length} en plantilla</span>
+                  <span className="text-xs text-zinc-400 font-mono">Total: {personnel.length} en plantilla</span>
                 </div>
                 <div className="bg-white rounded-3xl overflow-hidden border border-zinc-200 shadow-sm">
                   <MapSimulator
@@ -468,23 +468,23 @@ export default function SupervisorRole({
                 <div className="bg-white rounded-2xl border border-zinc-200 p-5 shadow-sm space-y-4">
                   <div>
                     <h3 className="text-xs font-bold text-zinc-800 uppercase tracking-wider">Turnos e Ingresos Activos</h3>
-                    <p className="text-[10px] text-zinc-400 mt-0.5">Control de asistencia georreferenciada.</p>
+                    <p className="text-xs text-zinc-400 mt-0.5">Control de asistencia georreferenciada.</p>
                   </div>
                   <div className="space-y-3">
                     {attendance.filter((a) => !a.checkOutTime).map((log) => {
                       return (
                         <div key={log.id} className="flex flex-col justify-between text-xs border-b border-zinc-100 pb-3 last:border-0 last:pb-0">
                           <div>
-                            <span className="font-semibold text-zinc-800 block text-[12px]">{log.personnelName}</span>
-                            <div className="text-[10px] text-zinc-500 mt-1">
+                            <span className="font-semibold text-zinc-800 block text-xs">{log.personnelName}</span>
+                            <div className="text-xs text-zinc-500 mt-1">
                               Ubicación: <span className="font-medium text-zinc-600">{log.clientName}</span>
                             </div>
                           </div>
                           <div className="flex items-center justify-between mt-2 pt-1">
-                            <span className="text-[10px] font-mono text-zinc-500">
+                            <span className="text-xs font-mono text-zinc-500">
                               Ingreso: {new Date(log.checkInTime).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                             </span>
-                            <span className={`text-[8px] px-1.5 py-0.5 rounded font-bold font-mono ${
+                            <span className={`text-xs px-2 py-0.5 rounded font-bold font-mono ${
                               log.checkInValid ? "bg-emerald-50 text-emerald-700 border border-emerald-100" : "bg-rose-50 text-rose-700 border border-rose-100"
                             }`}>
                               {log.checkInValid ? "RANGO VÁLIDO" : "FUERA DE RANGO"}
@@ -504,7 +504,7 @@ export default function SupervisorRole({
 
           {activeTab === "alertas" && (
             <div className="space-y-4 animate-fade-in">
-              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider block px-1">
+              <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider block px-1">
                 Atención Inmediata de Alertas ({activeAlerts.length})
               </span>
 
@@ -528,23 +528,23 @@ export default function SupervisorRole({
                       <div>
                         <div className="flex items-center justify-between">
                           {inc.isPanic ? (
-                            <span className="bg-rose-600 text-white text-[9px] font-bold px-2 py-0.5 rounded animate-pulse">
+                            <span className="bg-rose-600 text-white text-xs font-bold px-2.5 py-0.5 rounded animate-pulse">
                               🚨 BOTÓN DE PÁNICO
                             </span>
                           ) : (
-                            <span className="bg-amber-100 text-amber-800 text-[9px] font-bold px-2 py-0.5 rounded">
+                            <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded">
                               ⚠️ INCIDENCIA PRIORITARIA
                             </span>
                           )}
-                          <span className="text-[9px] text-zinc-400 font-mono">
+                          <span className="text-xs text-zinc-400 font-mono">
                             {new Date(inc.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
                           </span>
                         </div>
                         <h4 className="text-xs font-bold text-zinc-800 mt-3">{inc.clientName}</h4>
-                        <p className="text-zinc-500 text-[11px] mt-1.5 leading-relaxed">
+                        <p className="text-zinc-500 text-xs mt-1.5 leading-relaxed">
                           "{inc.description}"
                         </p>
-                        <div className="text-[9px] text-zinc-400 mt-2.5 font-mono">
+                        <div className="text-xs text-zinc-400 mt-2.5 font-mono">
                           Reportado por: <span className="text-zinc-600 font-semibold">{inc.personnelName}</span>
                         </div>
                       </div>
@@ -552,26 +552,26 @@ export default function SupervisorRole({
                       <div className="mt-4 pt-2">
                         {resolvingIncidentId === inc.id ? (
                           <div className="bg-white p-3.5 rounded-xl border border-zinc-200 space-y-3 animate-fade-in">
-                            <label className="block text-[10px] text-zinc-500 font-medium">
+                            <label className="block text-xs text-zinc-500 font-medium">
                               Instrucciones / Bitácora de Resolución
                             </label>
                             <textarea
                               rows={2}
                               value={resolutionNotes}
                               onChange={(e) => setResolutionNotes(e.target.value)}
-                              placeholder="Ej. Se envió patrulla de apoyo y se notificó a policía de cuadrante."
-                              className="w-full text-xs p-2.5 border border-zinc-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-zinc-400"
+                              placeholder="Ej. Se envió patrulla de apoyo."
+                              className="w-full text-xs p-2.5 border border-zinc-200 rounded-lg focus:outline-none"
                             />
                             <div className="flex gap-2">
                               <button
                                 onClick={() => handleResolveIncident(inc.id)}
-                                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-semibold py-2 rounded-lg transition"
+                                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2 rounded-lg transition"
                               >
                                 Guardar y Cerrar
                               </button>
                               <button
                                 onClick={() => setResolvingIncidentId(null)}
-                                className="px-3 py-2 border border-zinc-200 text-zinc-500 text-[11px] rounded-lg hover:bg-zinc-50"
+                                className="px-3 py-2 border border-zinc-200 text-zinc-500 text-xs rounded-lg hover:bg-zinc-50"
                               >
                                 Cancelar
                               </button>

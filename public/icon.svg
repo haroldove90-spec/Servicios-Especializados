@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1c1917" />
+      <stop offset="100%" stop-color="#0c0a09" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded elegant backdrop -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  
+  <g transform="translate(256, 256) scale(1.3)">
+    <!-- Shield representing Security -->
+    <path d="M 0,-80 C 45,-80 75,-65 75,-25 C 75,25 35,65 0,85 C -35,65 -75,25 -75,-25 C -75,-65 -45,-80 0,-80 Z" fill="url(#shieldGrad)" />
+    
+    <!-- Sparkles/Cleanliness symbol representing cleaning operations -->
+    <!-- Large Sparkle -->
+    <path d="M 0,-45 L 4,-20 L 25,-16 L 4,-12 L 0,10 L -4,-12 L -25,-16 L -4,-20 Z" fill="#ffffff" opacity="0.95" />
+    <!-- Small secondary Sparkle -->
+    <path d="M 28,12 L 30,22 L 40,24 L 30,26 L 28,36 L 26,26 L 16,24 L 26,22 Z" fill="#ffffff" opacity="0.85" />
+    <!-- Sparkle dot -->
+    <circle cx="-25" cy="18" r="4" fill="#ffffff" opacity="0.9" />
+    <circle cx="32" cy="-40" r="5" fill="#ffffff" opacity="0.9" />
+  </g>
+</svg>

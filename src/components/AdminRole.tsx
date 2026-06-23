@@ -172,11 +172,11 @@ export default function AdminRole({
                 JH
               </div>
               <div>
-                <span className="text-[10px] text-stone-400 uppercase tracking-widest font-mono">Panel Global</span>
+                <span className="text-xs text-stone-400 uppercase tracking-widest font-mono">Panel Global</span>
                 <h1 className="text-sm font-semibold text-stone-100">José Hernández</h1>
               </div>
             </div>
-            <span className="bg-amber-400/10 text-amber-400 text-[10px] uppercase font-mono px-2.5 py-0.5 rounded-full border border-amber-400/20">
+            <span className="bg-amber-400/10 text-amber-400 text-xs uppercase font-mono px-2.5 py-0.5 rounded-full border border-amber-400/20">
               DUEÑO / ADMIN
             </span>
           </div>
@@ -185,7 +185,7 @@ export default function AdminRole({
           <div className="flex gap-1.5 mt-5 bg-stone-950/40 p-1 rounded-xl max-w-md">
             <button
               onClick={() => setActiveTab("dashboard")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
+              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
                 activeTab === "dashboard" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
               }`}
             >
@@ -193,7 +193,7 @@ export default function AdminRole({
             </button>
             <button
               onClick={() => setActiveTab("clientes")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
+              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
                 activeTab === "clientes" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
               }`}
             >
@@ -201,7 +201,7 @@ export default function AdminRole({
             </button>
             <button
               onClick={() => setActiveTab("personal")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
+              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
                 activeTab === "personal" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
               }`}
             >
@@ -209,7 +209,7 @@ export default function AdminRole({
             </button>
             <button
               onClick={() => setActiveTab("reportes")}
-              className={`flex-1 text-[11px] font-medium py-1.5 rounded-lg transition-all ${
+              className={`flex-1 text-xs font-semibold py-1.5 rounded-lg transition-all ${
                 activeTab === "reportes" ? "bg-stone-100 text-stone-900 shadow-sm" : "text-stone-400 hover:text-stone-200"
               }`}
             >
@@ -229,28 +229,28 @@ export default function AdminRole({
                 {/* Quick KPIs Grid */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between h-24">
-                    <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Asistencia</span>
+                    <span className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Asistencia</span>
                     <div className="flex items-baseline gap-1 mt-1">
                       <span className="text-2xl font-bold text-stone-800">
                         {attendance.filter((a) => !a.checkOutTime).length}
                       </span>
-                      <span className="text-[10px] text-stone-400 font-mono">activos</span>
+                      <span className="text-xs text-stone-400 font-mono">activos</span>
                     </div>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between h-24">
-                    <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Servicios</span>
+                    <span className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Servicios</span>
                     <div className="flex items-baseline gap-1 mt-1">
                       <span className="text-2xl font-bold text-stone-800">{completionRate}%</span>
-                      <span className="text-[10px] text-emerald-500 font-mono">éxito</span>
+                      <span className="text-xs text-emerald-500 font-mono">éxito</span>
                     </div>
                   </div>
                   <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-sm flex flex-col justify-between relative overflow-hidden h-24">
-                    <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Alertas</span>
+                    <span className="text-xs text-stone-500 uppercase tracking-wider font-semibold">Alertas</span>
                     <div className="flex items-baseline gap-1 mt-1">
                       <span className={`text-2xl font-bold ${activePanicCount > 0 ? "text-rose-600 animate-pulse" : "text-amber-600"}`}>
                         {activeIncidents.length}
                       </span>
-                      <span className="text-[10px] text-stone-400 font-mono">abiertas</span>
+                      <span className="text-xs text-stone-400 font-mono">abiertas</span>
                     </div>
                     {activePanicCount > 0 && (
                       <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
@@ -264,7 +264,7 @@ export default function AdminRole({
                     <h3 className="text-xs font-bold text-stone-500 uppercase tracking-wider flex items-center gap-1.5">
                       <MapIcon className="w-4 h-4 text-stone-600" /> Monitoreo GPS en Vivo
                     </h3>
-                    <span className="text-[11px] text-stone-400 font-mono">Total: {clients.length} geocercas</span>
+                    <span className="text-xs text-stone-400 font-mono">Total: {clients.length} geocercas</span>
                   </div>
                   <div className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm">
                     <MapSimulator
@@ -289,7 +289,7 @@ export default function AdminRole({
                         <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
                         Alertas Críticas
                       </span>
-                      <span className="bg-rose-100 text-rose-800 text-[9px] font-mono font-bold px-2 py-0.5 rounded">
+                      <span className="bg-rose-100 text-rose-800 text-xs font-mono font-bold px-2 py-0.5 rounded">
                         URGENTE
                       </span>
                     </div>
@@ -301,17 +301,17 @@ export default function AdminRole({
                         >
                           <div>
                             <div className="font-semibold text-stone-800 flex items-center gap-1.5">
-                              {inc.isPanic && <span className="text-[9px] bg-rose-600 text-white font-bold px-1 rounded">PANIC</span>}
+                              {inc.isPanic && <span className="text-xs bg-rose-600 text-white font-bold px-1.5 rounded">PANIC</span>}
                               <span>{inc.clientName}</span>
                             </div>
-                            <p className="text-stone-500 text-[11px] mt-0.5 leading-relaxed">{inc.description}</p>
-                            <div className="text-[9px] text-stone-400 mt-1.5 flex gap-2 font-mono">
+                            <p className="text-stone-500 text-xs mt-0.5 leading-relaxed">{inc.description}</p>
+                            <div className="text-xs text-stone-400 mt-1.5 flex gap-2 font-mono">
                               <span>De: {inc.personnelName}</span>
                               <span>•</span>
                               <span>{new Date(inc.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
                             </div>
                           </div>
-                          <span className="bg-rose-50 text-rose-700 text-[9px] font-bold py-1 px-1.5 rounded-lg flex items-center gap-1 shrink-0">
+                          <span className="bg-rose-50 text-rose-700 text-xs font-bold py-1 px-1.5 rounded-lg flex items-center gap-1 shrink-0">
                             <AlertOctagon className="w-3.5 h-3.5" /> {inc.type}
                           </span>
                         </div>
@@ -324,7 +324,7 @@ export default function AdminRole({
                 <div className="bg-white rounded-2xl border border-stone-200 p-4.5 space-y-4.5 shadow-sm">
                   <div>
                     <h3 className="text-xs font-bold text-stone-800 uppercase tracking-wider">Estatus Operativo de Servicios</h3>
-                    <p className="text-[10px] text-stone-400 mt-0.5">Control de cumplimiento por geocercas fijas.</p>
+                    <p className="text-xs text-stone-400 mt-0.5">Control de cumplimiento por geocercas fijas.</p>
                   </div>
                   <div className="space-y-3.5">
                     {clients.map((cli) => {
@@ -337,7 +337,7 @@ export default function AdminRole({
                         <div key={cli.id} className="border-b border-stone-100 pb-3 last:border-0 last:pb-0">
                           <div className="flex justify-between items-center text-xs">
                             <span className="font-semibold text-stone-800 truncate max-w-[180px]">{cli.name}</span>
-                            <span className="text-[10px] text-stone-500 font-mono">
+                            <span className="text-xs text-stone-500 font-mono">
                               {done}/{total} tareas
                             </span>
                           </div>
@@ -345,7 +345,7 @@ export default function AdminRole({
                             {cli.services.map((srv) => (
                               <span
                                 key={srv}
-                                className={`text-[8px] font-mono px-1.5 py-0.5 rounded ${
+                                className={`text-xs font-mono px-2 py-0.5 rounded ${
                                   srv === "Seguridad"
                                     ? "bg-rose-50 text-rose-700 border border-rose-100"
                                     : "bg-cyan-50 text-cyan-700 border border-cyan-100"
@@ -382,7 +382,7 @@ export default function AdminRole({
                   </h3>
                   <form onSubmit={handleAddClient} className="space-y-3">
                     <div>
-                      <label className="block text-[10px] font-mono text-stone-500 mb-1">Nombre Comercial</label>
+                      <label className="block text-xs font-mono text-stone-500 mb-1">Nombre Comercial</label>
                       <input
                         type="text"
                         required
@@ -393,7 +393,7 @@ export default function AdminRole({
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-mono text-stone-500 mb-1">Dirección Física</label>
+                      <label className="block text-xs font-mono text-stone-500 mb-1">Dirección Física</label>
                       <input
                         type="text"
                         required
@@ -405,7 +405,7 @@ export default function AdminRole({
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Geocerca Radio (metros)</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Geocerca Radio (metros)</label>
                         <select
                           value={clientRadius}
                           onChange={(e) => setClientRadius(e.target.value)}
@@ -417,7 +417,7 @@ export default function AdminRole({
                         </select>
                       </div>
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Servicios Contratados</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Servicios Contratados</label>
                         <div className="flex gap-3 mt-2">
                           <label className="flex items-center gap-1 text-[11px] cursor-pointer">
                             <input
@@ -455,7 +455,7 @@ export default function AdminRole({
 
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Inicio de Contrato</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Inicio de Contrato</label>
                         <input
                           type="date"
                           value={contractStart}
@@ -464,7 +464,7 @@ export default function AdminRole({
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Fin de Contrato</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Fin de Contrato</label>
                         <input
                           type="date"
                           value={contractEnd}
@@ -476,7 +476,7 @@ export default function AdminRole({
 
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Latitud GPS</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Latitud GPS</label>
                         <input
                           type="number"
                           step="0.0001"
@@ -486,7 +486,7 @@ export default function AdminRole({
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Longitud GPS</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Longitud GPS</label>
                         <input
                           type="number"
                           step="0.0001"
@@ -510,7 +510,7 @@ export default function AdminRole({
 
               {/* Right Column: Clients List Grid (7/12) */}
               <div className="lg:col-span-7 space-y-3">
-                <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block px-1">
+                <span className="text-xs font-mono text-stone-400 uppercase tracking-wider block px-1">
                   Clientes Registrados ({clients.length})
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -535,15 +535,15 @@ export default function AdminRole({
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <p className="text-[11px] text-stone-500 mt-1 leading-relaxed">{cli.address}</p>
+                        <p className="text-xs text-stone-500 mt-1 leading-relaxed">{cli.address}</p>
                         <div className="flex flex-wrap gap-1 mt-3">
-                          <span className="text-[9px] bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded font-mono">
+                          <span className="text-xs bg-stone-100 text-stone-600 px-1.5 py-0.5 rounded font-mono">
                             Radio: {cli.radius}m
                           </span>
                           {cli.services.map((srv) => (
                             <span
                               key={srv}
-                              className={`text-[8px] font-mono px-1.5 py-0.5 rounded ${
+                              className={`text-xs font-mono px-2 py-0.5 rounded ${
                                 srv === "Seguridad"
                                   ? "bg-rose-50 text-rose-700 border border-rose-100"
                                   : "bg-cyan-50 text-cyan-700 border border-cyan-100"
@@ -554,7 +554,7 @@ export default function AdminRole({
                           ))}
                         </div>
                       </div>
-                      <div className="text-[9px] text-stone-400 mt-3.5 pt-2 border-t border-stone-50 font-mono flex justify-between items-center">
+                      <div className="text-xs text-stone-400 mt-3.5 pt-2 border-t border-stone-50 font-mono flex justify-between items-center">
                         <span>Vigencia:</span>
                         <span>{cli.contractEnd}</span>
                       </div>
@@ -575,7 +575,7 @@ export default function AdminRole({
                   </h3>
                   <form onSubmit={handleAddStaff} className="space-y-3">
                     <div>
-                      <label className="block text-[10px] font-mono text-stone-500 mb-1">Nombre Completo</label>
+                      <label className="block text-xs font-mono text-stone-500 mb-1">Nombre Completo</label>
                       <input
                         type="text"
                         required
@@ -587,7 +587,7 @@ export default function AdminRole({
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Rol / Especialidad</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Rol / Especialidad</label>
                         <select
                           value={staffRole}
                           onChange={(e) => setStaffRole(e.target.value as "Guardia" | "Limpieza")}
@@ -598,7 +598,7 @@ export default function AdminRole({
                         </select>
                       </div>
                       <div>
-                        <label className="block text-[10px] font-mono text-stone-500 mb-1">Teléfono Móvil</label>
+                        <label className="block text-xs font-mono text-stone-500 mb-1">Teléfono Móvil</label>
                         <input
                           type="tel"
                           required
@@ -611,7 +611,7 @@ export default function AdminRole({
                     </div>
 
                     <div>
-                      <label className="block text-[10px] font-mono text-stone-500 mb-1">Asignar Cliente Fijo / Ubicación</label>
+                      <label className="block text-xs font-mono text-stone-500 mb-1">Asignar Cliente Fijo / Ubicación</label>
                       <select
                         required
                         value={assignedClientId}
@@ -639,7 +639,7 @@ export default function AdminRole({
 
               {/* Right Column: Personnel Grid List (7/12) */}
               <div className="lg:col-span-7 space-y-3">
-                <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block px-1">
+                <span className="text-xs font-mono text-stone-400 uppercase tracking-wider block px-1">
                   Personal Operativo Registrado ({personnel.length})
                 </span>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -654,7 +654,7 @@ export default function AdminRole({
                           <div className="flex items-center justify-between gap-2">
                             <span className="text-xs font-bold text-stone-800 truncate">{p.name}</span>
                             <span
-                              className={`text-[8px] font-mono px-1.5 py-0.5 rounded shrink-0 ${
+                              className={`text-xs font-mono px-2 py-0.5 rounded shrink-0 ${
                                 p.role === "Guardia"
                                   ? "bg-rose-50 text-rose-700 border border-rose-100"
                                   : "bg-cyan-50 text-cyan-700 border border-cyan-100"
@@ -663,12 +663,12 @@ export default function AdminRole({
                               {p.role}
                             </span>
                           </div>
-                          <p className="text-[11px] text-stone-500 mt-2">
+                          <p className="text-xs text-stone-500 mt-2">
                             Cliente: <span className="font-semibold text-stone-700">{client ? client.name : "Sin asignar"}</span>
                           </p>
                         </div>
                         <div className="flex justify-between items-center mt-2 pt-2 border-t border-stone-50">
-                          <span className="text-[10px] text-stone-400 font-mono">Cel: {p.phone}</span>
+                          <span className="text-xs text-stone-400 font-mono">Cel: {p.phone}</span>
                           <button
                             onClick={() => handleDeleteStaff(p.id)}
                             className="text-stone-400 hover:text-rose-600 transition p-1 shrink-0"
@@ -694,7 +694,7 @@ export default function AdminRole({
                     <h3 className="text-xs font-bold text-stone-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
                       <FileText className="w-4 h-4 text-stone-500" /> Exportar Auditoría Consolidada
                     </h3>
-                    <p className="text-[11px] text-stone-500 leading-relaxed">
+                    <p className="text-xs text-stone-500 leading-relaxed">
                       Descarga las bitácoras operativas consolidadas en formato CSV compatible con Excel para control de nóminas y reporteo a clientes.
                     </p>
                   </div>
@@ -707,7 +707,7 @@ export default function AdminRole({
                       <Download className="w-5 h-5 text-stone-600" />
                       <div>
                         <span className="text-xs font-bold block">Bitácora Asistencia</span>
-                        <span className="text-[9px] text-stone-400 font-mono">Geofencing Logs</span>
+                        <span className="text-xs text-stone-400 font-mono">Geofencing Logs</span>
                       </div>
                     </button>
 
@@ -718,7 +718,7 @@ export default function AdminRole({
                       <Download className="w-5 h-5 text-stone-600" />
                       <div>
                         <span className="text-xs font-bold block">Bitácora Incidencias</span>
-                        <span className="text-[9px] text-stone-400 font-mono">Fichas de Evidencia</span>
+                        <span className="text-xs text-stone-400 font-mono">Fichas de Evidencia</span>
                       </div>
                     </button>
                   </div>
@@ -730,14 +730,14 @@ export default function AdminRole({
                 <div className="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm space-y-4">
                   <div>
                     <h3 className="text-xs font-bold text-stone-800 uppercase tracking-wider">Análisis de Novedades e Incidencias</h3>
-                    <p className="text-[11px] text-stone-500 leading-relaxed mt-1">
+                    <p className="text-xs text-stone-500 leading-relaxed mt-1">
                       Visualización de densidad de incidencias y novedades en zonas operativas. Se detectan anomalías para reajuste de rondines.
                     </p>
                   </div>
 
                   {/* Map simulator with heatmaps turned on */}
                   <div className="pt-2">
-                    <span className="text-[10px] font-mono text-stone-400 uppercase tracking-wider block mb-1.5">
+                    <span className="text-xs font-mono text-stone-400 uppercase tracking-wider block mb-1.5">
                       Mapa de Calor de Frecuencia (Zonas Críticas)
                     </span>
                     <div className="bg-white rounded-2xl overflow-hidden border border-stone-200">
@@ -753,17 +753,17 @@ export default function AdminRole({
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 pt-4 border-t border-stone-100">
                     <div className="bg-stone-50 p-3 rounded-xl border border-stone-100">
-                      <span className="text-[10px] text-stone-500 block uppercase font-semibold">Total de reportes</span>
+                      <span className="text-xs text-stone-500 block uppercase font-semibold">Total de reportes</span>
                       <span className="text-lg font-bold text-stone-800 mt-1 block">{incidents.length}</span>
                     </div>
                     <div className="bg-stone-50 p-3 rounded-xl border border-stone-100">
-                      <span className="text-[10px] text-stone-500 block uppercase font-semibold">Incidentes Prioridad</span>
+                      <span className="text-xs text-stone-500 block uppercase font-semibold">Incidentes Prioridad</span>
                       <span className="text-lg font-bold text-amber-600 mt-1 block">
                         {incidents.filter((i) => i.type === "Prioritaria").length}
                       </span>
                     </div>
                     <div className="bg-stone-50 p-3 rounded-xl border border-stone-100">
-                      <span className="text-[10px] text-stone-500 block uppercase font-semibold">Pánicos S.O.S</span>
+                      <span className="text-xs text-stone-500 block uppercase font-semibold">Pánicos S.O.S</span>
                       <span className="text-lg font-bold text-rose-600 mt-1 block">
                         {incidents.filter((i) => i.isPanic).length}
                       </span>
